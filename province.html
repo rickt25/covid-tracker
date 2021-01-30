@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Covid Tracker</title>
+
+		<link rel="stylesheet" href="assets/css/style.css" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<div class="preloader" id="preloader">
+			<div class="lds-dual-ring"></div>
+		</div>
+
+		<header>
+			<nav class="nav">
+				<div class="nav-title">
+					<h4>Covid-19 Tracker App</h4>
+					<span id="date"></span>
+				</div>
+				<div class="navigation">
+					<button class="toggleNav">
+						<span>Province</span> <img src="assets/icons/arrow.png" alt="" />
+					</button>
+					<div class="navDropdown shadow">
+						<a href="index.html">Overview</a>
+					</div>
+				</div>
+			</nav>
+		</header>
+
+		<main>
+			<div class="searchbar shadow">
+				<img class="search-icon" src="assets/icons/search.png" alt="" />
+				<input
+					class="search-input"
+					oninput="filterProvince()"
+					type="text"
+					id="searchInput"
+					placeholder="Search province..."
+				/>
+			</div>
+			<section class="province-wrapper" id="provinces"></section>
+		</main>
+		<script src="assets/js/province.js"></script>
+	</body>
+</html>

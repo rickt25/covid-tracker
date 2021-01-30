@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covid Tracker</title>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/script.js" defer></script>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="preloader" id="preloader">
+        <div class="lds-dual-ring"></div>
+    </div>
+
+    <header>
+        <nav class="nav">
+            <div class="nav-title">
+                <h4>Covid-19 Tracker App</h4>
+            </div>
+            <div class="navigation">
+                <button class="toggleNav"><span>Overview</span> <img src="assets/icons/arrow.png" alt=""></button>
+                <div class="navDropdown shadow">
+                    <a href="province.html">Province</a>
+                </div>
+            </div>
+        </nav>
+        <span id="date"></span>
+    </header>
+    
+    <main>
+        <section class="wrapper">
+            <div class="card card-total shadow">
+                <p class="card-title">Total cases</p>
+                <h4 class="card-number red-text" id="total-cases">0</h4>
+                <img class="card-img" src="assets/images/virus.png" alt="">
+            </div>
+            <div class="card card-positive shadow">
+                <p class="card-title">Positive</p>
+                <h4 class="card-number" id="positive">0</h4>
+                <img class="card-img" src="assets/images/plus.png" alt="">
+            </div>
+            <div class="card card-recovered shadow">
+                <p class="card-title">Recovered</p>
+                <h4 class="card-number" id="recovered">0</h4>
+                <img class="card-img" src="assets/images/heart.png" alt="">
+            </div>
+            <div class="card card-death shadow">
+                <p class="card-title">Death</p>
+                <h4 class="card-number" id="death">0</h4>
+                <img class="card-img" src="assets/images/coffin.png" alt="">
+            </div>
+        </section>
+    </main>
+
+    <footer>
+
+    </footer>
+
+</body>
+
+</html>
