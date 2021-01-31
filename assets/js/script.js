@@ -25,14 +25,14 @@ async function getData() {
 
 async function renderData(){
     let data = await getData()
-
-    console.log(data)
     
-    total.innerHTML = data.jumlahKasus
-    positive.innerHTML = data.perawatan
-    recovered.innerHTML = data.sembuh
-    death.innerHTML = data.meninggal
-    date.innerHTML = "Last updated : " + formatDate(data.lastUpdate.toString())
+    if(data){
+        total.innerHTML = data.jumlahKasus
+        positive.innerHTML = data.perawatan
+        recovered.innerHTML = data.sembuh
+        death.innerHTML = data.meninggal
+        date.innerHTML = "Last updated : " + formatDate(data.lastUpdate.toString())
+    }
 }
 
 
