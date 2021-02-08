@@ -1,10 +1,8 @@
 const total = document.getElementById('total-cases')
 const positive = document.getElementById('positive')
-const recovered = document.getElementById('recovered')
+const recover = document.getElementById('recover')
 const death = document.getElementById('death')
 const date = document.getElementById('date')
-
-
 
 window.addEventListener('load', () => {
     const preload = document.getElementById('preloader')
@@ -14,7 +12,7 @@ window.addEventListener('load', () => {
 })
 
 async function getData() {
-    let url = 'https://indonesia-covid-19.mathdro.id/api/'
+    let url = 'https://covid19.mathdro.id/api/countries/IDN'
     try {
         let res = await fetch(url)
         return await res.json()
@@ -24,14 +22,14 @@ async function getData() {
 }
 
 async function renderData(){
-    let data = await getData()
+    let { confirmed, recovered, deaths, lastUpdate } = await getData()
     
-    if(data){
-        total.innerHTML = data.jumlahKasus
-        positive.innerHTML = data.perawatan
-        recovered.innerHTML = data.sembuh
-        death.innerHTML = data.meninggal
-        date.innerHTML = "Last updated : " + formatDate(data.lastUpdate.toString())
+    if(confirmed.value){
+        total.innerHTML = confirmed.value + recovered.value + deaths.value
+        positive.innerHTML = confirmed.value
+        recover.innerHTML = recovered.value
+        death.innerHTML = deaths.value
+        date.innerHTML = "Last updated : " + formatDate(lastUpdate.toString())
     }
 }
 

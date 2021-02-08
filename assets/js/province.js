@@ -6,6 +6,16 @@ window.addEventListener('load', () => {
     }, 1000)
 })
 
+async function getData() {
+    let url = 'https://covid19.mathdro.id/api/countries/IDN'
+    try {
+        let res = await fetch(url)
+        return await res.json()
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 async function getProvince() {
     let url = 'https://indonesia-covid-19.mathdro.id/api/provinsi'
     try {
@@ -42,11 +52,17 @@ async function getProvince() {
 
 async function renderProvince(key = "") {
     const provinces = document.querySelector('#provinces');
+    let overview = await getData()
     const datas = localStorage.getItem("provinces") === undefined
         ? await getProvince()
         : JSON.parse(localStorage.getItem("provinces"))
 
     datas.filter(province => province.provinsi.toLowerCase().match(key.toLowerCase())).forEach(data => {
+        if(data.provinsi === "Indonesia"){
+            data.kasusPosi = overview.confirmed.value
+            data.kasusSemb = overview.recovered.value
+            data.kasusMeni = overview.deaths.value
+        }
         const element = `
                 <div class="box-wrapper shadow">
                      <div class="city">${data.provinsi}</div>
