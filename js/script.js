@@ -14,8 +14,8 @@ window.addEventListener('load', () => {
 async function getData() {
     let url = 'https://covid19.mathdro.id/api/countries/IDN'
     try {
-        let res = await fetch(url)
-        return await res.json()
+        let res = await fetch(url);
+        return await res.json();
     } catch (error) {
         console.log(error)
     }

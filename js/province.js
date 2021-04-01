@@ -52,8 +52,8 @@ async function getProvince() {
 
 async function renderProvince(key = "") {
     const provinces = document.querySelector('#provinces');
-    let overview = await getData()
-    const datas = localStorage.getItem("provinces") === undefined
+    let overview = await getData();
+    const datas = localStorage.getItem("provinces") === null
         ? await getProvince()
         : JSON.parse(localStorage.getItem("provinces"))
 
@@ -96,7 +96,7 @@ function filterProvince() {
     if (!key) return renderProvince();
 
     clearProvince();
-    renderProvince(key)
+    renderProvince(key);
 }
 
 renderProvince()
